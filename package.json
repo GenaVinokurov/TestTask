@@ -22,6 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-rewired": "react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -44,12 +45,15 @@
     ]
   },
   "devDependencies": {
+    "@effortlessmotion/html-webpack-inline-source-plugin": "^1.0.3",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "eslint": "^8.36.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
-    "prettier": "2.8.4"
+    "html-webpack-plugin": "^5.5.0",
+    "prettier": "2.8.4",
+    "react-app-rewired": "^2.2.1"
   }
 }
