@@ -1,15 +1,21 @@
+import classNames from 'classnames';
 import React from 'react';
 import style from './Button.module.css';
 
 interface ButtonProps {
-  color: string;
+  variant: string;
   onClick: () => void;
   children: string;
 }
 
-const Button = React.memo(function ({ color, onClick, children }: ButtonProps) {
+const Button = React.memo(function ({ variant, onClick, children }: ButtonProps) {
   return (
-    <button className={style.button} style={{ backgroundColor: color }} onClick={onClick}>
+    <button
+      className={`${classNames(style.button, {
+        [style[variant]]: variant,
+      })}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

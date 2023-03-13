@@ -1,26 +1,21 @@
 import React from 'react';
 import { UserItem } from '../../types';
 import style from './Item.module.css';
-import { removeUser, setDeletedUsers } from '../../store/Users/UsersSlice';
-import { useAppDispatch } from '../../store/store';
 import Highlight from '../HighLight/Highlight';
 import Button from '../Button/Button';
-import { openModal } from '../../store/Modal/ModalSlice';
 
-const Item = React.memo(function ({ id, name, username, email, filter }: UserItem) {
-  const dispatch = useAppDispatch();
-
-  const deleteUser = () => {
-    dispatch(setDeletedUsers(id));
-    dispatch(removeUser(id));
-  };
-  const handleClick = () => {
-    dispatch(openModal(id));
-  };
-
+const Item = React.memo(function ({
+  id,
+  name,
+  username,
+  email,
+  filter,
+  deleteUser,
+  handleClick,
+}: UserItem) {
   return (
     <li className={style.item}>
-      <div className={style.data} onClick={handleClick}>
+      <div className={style.data} onClick={() => handleClick(id)}>
         <p className={style.text}>
           <span className={style.category}>Name: </span>
           <Highlight text={name} search={filter} />
@@ -34,7 +29,7 @@ const Item = React.memo(function ({ id, name, username, email, filter }: UserIte
           <Highlight text={email} search={filter} />
         </p>
       </div>
-      <Button onClick={deleteUser} color="#e34234">
+      <Button onClick={() => deleteUser(id)} variant="red">
         Delete
       </Button>
     </li>

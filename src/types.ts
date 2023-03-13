@@ -22,4 +22,6 @@ export interface UserData {
 
 export interface UserItem extends UserData {
   filter: string;
+  deleteUser: (id: number) => void;
+  handleClick: (id: number) => void;
 }

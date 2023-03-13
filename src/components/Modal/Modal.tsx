@@ -26,7 +26,7 @@ function Modal() {
       <div className={style.modal}>
         <div className={style.head}>
           <h3>Additional information</h3>
-          <Button color="#e34234" onClick={handleClick}>
+          <Button variant="red" onClick={handleClick}>
             Close
           </Button>
         </div>
